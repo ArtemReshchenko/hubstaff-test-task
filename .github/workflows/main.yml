@@ -37,7 +37,7 @@ jobs:
         run: npm ci
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install chromium
 
       - name: Create test results directory
         run: mkdir -p test-results/screenshots allure-results

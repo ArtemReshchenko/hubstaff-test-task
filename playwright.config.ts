@@ -22,19 +22,13 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only by default, can be overridden with environment variable */
-  retries: process.env.CI ? 2 : (process.env.RETRIES ? parseInt(process.env.RETRIES) : 1),
+  retries: process.env.CI ? 2 : 0,
   /* Workers can be configured through environment variable */
-  workers: process.env.WORKERS ? parseInt(process.env.WORKERS) : (process.env.CI ? 1 : undefined),
+  workers: process.env.CI ? 3 : undefined,
   /* Reporter configuration with both HTML and Allure */
   reporter: [
-    ['html'],
-    ['list'],
-    ['allure-playwright', {
-      detail: true,
-      outputFolder: 'allure-results',
-      suiteTitle: false
-    }],
-    ['junit', { outputFile: 'test-results/junit-report.xml' }]
+    ['html', { outputFolder: 'playwright-report' }],
+    ['allure-playwright', { outputFolder: 'allure-results' }],
   ],
   
   /* Global setup to install dependencies if required */
@@ -48,11 +42,7 @@ export default defineConfig({
     },
     {
       name: 'chromium',
-      use: { 
-        ...devices['Desktop Chrome'],
-        // Pass environment variables to browser context
-        storageState: process.env.STORAGE_STATE || undefined,
-      },
+      use: { ...devices['Desktop Chrome'] },
       dependencies: process.env.SETUP_GLOBAL === 'true' ? ['setup'] : [],
     },
     {
@@ -71,10 +61,10 @@ export default defineConfig({
     baseURL: process.env.BASE_URL || 'https://hubstaff.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'retain-on-failure',
+    trace: 'on-first-retry',
     
     /* Record video for failed tests */
-    video: 'on-first-retry',
+    video: 'retain-on-failure',
     
     /* Capture screenshot after each test failure */
     screenshot: 'only-on-failure',
