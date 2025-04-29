@@ -16,6 +16,10 @@ jobs:
     env:
       # Use GitHub secrets for sensitive data
       MAILSLURP_API_KEY: ${{ secrets.MAILSLURP_API_KEY }}
+      TEST_USER_EMAIL: ${{ secrets.TEST_USER_EMAIL }}
+      TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
+      TEST_USER_FIRST_NAME: ${{ secrets.TEST_USER_FIRST_NAME }}
+      TEST_USER_LAST_NAME: ${{ secrets.TEST_USER_LAST_NAME }}
       BASE_URL: https://hubstaff.com
       HEADLESS: true
       VERIFY_EMAIL: true

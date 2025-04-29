@@ -6,10 +6,10 @@ dotenv.config();
 
 // Test data
 export const TEST_USER = {
-  firstName: 'John',
-  lastName: 'Doyl',
-  email: 'doej39969@gmail.com',
-  password: 'Pass123',
+  firstName: process.env.TEST_USER_FIRST_NAME || `Test${Date.now()}`,
+  lastName: process.env.TEST_USER_LAST_NAME || `User${Date.now()}`,
+  email: process.env.TEST_USER_EMAIL || `test.${Date.now()}@example.com`,
+  password: process.env.TEST_USER_PASSWORD || `Test${Date.now()}!`,
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   },
