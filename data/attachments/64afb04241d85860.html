@@ -1,0 +1,204 @@
+# Test info
+
+- Name: Hubstaff Signup and Login >> Test Case #100: Sign in
+- Location: C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:66:7
+
+# Error details
+
+```
+Error: Timed out 15000ms waiting for expect(locator).toHaveURL(expected)
+
+Locator: locator(':root')
+Expected pattern: /.*\/getting_started.*/
+Received string:  "https://account.hubstaff.com/login"
+Call log:
+  - expect.toHaveURL with timeout 15000ms
+  - waiting for locator(':root')
+    18 × locator resolved to <html class="login_layout controller_session action_create">…</html>
+       - unexpected value "https://account.hubstaff.com/login"
+
+    at C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:78:24
+```
+
+# Page snapshot
+
+```yaml
+- heading "Welcome to our community" [level=1]
+- text:      Hubstaff allows us to focus on what really matters. We now know more about our business and spend less time managing it, helping us be a better company.
+- img "organization logo"
+- text: John Parker Co-Founder at Quipro      Hubstaff solved our pain point the moment we started using it. Compared to other tools we'd tested, Hubstaff is simple, easy, and synchronizes with the other applications we use.
+- img "organization logo"
+- text: Andriy Sambir CEO at LinkUp      With Hubstaff we can better predict, down to the minute, how long tasks should take, therefore making better informed decisions.
+- img "organization logo"
+- text: Justin Mitchell CEO at Yac      Once we implemented Hubstaff I was amazed to see that some of the projects I thought were going to be profitable, we were blowing through hours that I wasn't aware of.
+- img "organization logo"
+- text: Tyler Nimmons CEO of Front Runner Films
+- link "Hubstaff online time tracking":
+  - /url: https://hubstaff.com/
+  - img "Hubstaff online time tracking"
+- heading "Sign in to Hubstaff" [level=2]
+- list:
+  - listitem: You cannot login until you confirm your email address. We just emailed you a confirmation.
+- text: Work email *
+- textbox "Work email *": john@example.com
+- text: Password *
+- textbox "Password *"
+- img "eye-off logo"
+- link "Forgot your password?":
+  - /url: /forgot_password
+- button "Sign in"
+- link "Log in with SSO":
+  - /url: https://account.hubstaff.com/sso_login
+- text: Don't have an account?
+- link "Get started":
+  - /url: https://app.hubstaff.com/signup?message=
+- region "Chat Widget":
+  - iframe
+  - img
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { TEST_USER, generateUniqueName, takeScreenshotOnFailure } from './utils/test-helpers';
+   3 | import { EmailHelper } from './utils/email-helper';
+   4 | import { MarketingPage } from './pages/marketing-page';
+   5 | import { SignupPage } from './pages/signup-page';
+   6 | import { LoginPage } from './pages/login-page';
+   7 | import { ProjectPage } from './pages/project-page';
+   8 | import { PaymentPage } from './pages/payment-page';
+   9 |
+   10 | // Test case #83: Signup for the 14-day free trial
+   11 | test.describe('Hubstaff Signup and Login', () => {
+   12 |   // Increase timeout for email verification tests
+   13 |   test.setTimeout(120000);
+   14 |
+   15 |   test('Test Case #83: Signup for the 14-day free trial', async ({ page }) => {
+   16 |     // Initialize page objects
+   17 |     const marketingPage = new MarketingPage(page);
+   18 |     const signupPage = new SignupPage(page);
+   19 |     
+   20 |     // Get API key from environment
+   21 |     const apiKey = process.env.MAILSLURP_API_KEY;
+   22 |     if (!apiKey) {
+   23 |       throw new Error('MAILSLURP_API_KEY is not set in environment variables or .env file');
+   24 |     }
+   25 |     
+   26 |     const emailHelper = new EmailHelper(page, apiKey, true); // Enable debug logging
+   27 |     
+   28 |     // Precondition: Marketing landing page is open
+   29 |     await marketingPage.goto();
+   30 |     await marketingPage.verifyOnMarketingPage();
+   31 |     
+   32 |     // 1. Click the "Free 14-day trial" button on the top nav header
+   33 |     await marketingPage.clickFreeTrialButton();
+   34 |     
+   35 |     // Verify redirect to sign up page
+   36 |     await signupPage.verifyOnSignupPage();
+   37 |     
+   38 |     // Create a new MailSlurp inbox for verification
+   39 |     const { inbox, emailAddress } = await emailHelper.createInbox();
+   40 |     console.log(`Created temporary email address: ${emailAddress}`);
+   41 |     
+   42 |     // Generate random first and last names
+   43 |     const firstName = generateUniqueName('User', false);
+   44 |     const lastName = generateUniqueName('Test', false);
+   45 |     console.log(`Generated test user: ${firstName} ${lastName}`);
+   46 |     
+   47 |     // 2-6. Complete the signup process with the MailSlurp email
+   48 |     const userData = {
+   49 |       firstName,
+   50 |       lastName,
+   51 |       email: emailAddress,
+   52 |       password: TEST_USER.password,
+   53 |       inboxId: inbox.id
+   54 |     };
+   55 |     
+   56 |     // Complete registration with email verification
+   57 |     const success = await signupPage.completeRegistrationWithEmailVerification(userData);
+   58 |     
+   59 |     // Verify the registration was successful
+   60 |     expect(success).toBe(true);
+   61 |     
+   62 |     // Clean up: Delete the temporary inbox
+   63 |     await emailHelper.deleteInbox(inbox.id);
+   64 |   });
+   65 |
+   66 |   test('Test Case #100: Sign in', async ({ page }) => {
+   67 |     // Initialize page objects
+   68 |     const marketingPage = new MarketingPage(page);
+   69 |     const loginPage = new LoginPage(page);
+   70 |     
+   71 |     await marketingPage.goto();
+   72 |     await marketingPage.verifyOnMarketingPage();
+   73 |     await marketingPage.clickSignInButton();
+   74 |     
+   75 |     await loginPage.verifyUrlAndTitle();
+   76 |     await loginPage.login(TEST_USER.email, TEST_USER.password);
+   77 |     
+>  78 |     await expect(page).toHaveURL(/.*\/getting_started.*/);
+      |                        ^ Error: Timed out 15000ms waiting for expect(locator).toHaveURL(expected)
+   79 |   });
+   80 | });
+   81 |
+   82 | // Test case #69: Add/create project
+   83 | test.describe('Project Management', () => {
+   84 |   test.beforeEach(async ({ page }) => {
+   85 |     // Common setup: Login to the application
+   86 |     const loginPage = new LoginPage(page);
+   87 |     await loginPage.goto();
+   88 |     await loginPage.login(TEST_USER.email, TEST_USER.password);
+   89 |     
+   90 |     // Wait for dashboard to load
+   91 |     await expect(page).toHaveURL(/.*\/dashboard.*/);
+   92 |   });
+   93 |   
+   94 |   test('Test Case #69: Create project', async ({ page }) => {
+   95 |     // Initialize page objects
+   96 |     const projectPage = new ProjectPage(page);
+   97 |     
+   98 |     // Navigate to Project management > Projects page
+   99 |     await projectPage.navigateToProjectsPage();
+  100 |     
+  101 |     // Generate a unique project name
+  102 |     const projectName = generateUniqueName('Project');
+  103 |     
+  104 |     // Create a new project
+  105 |     await projectPage.createProject(projectName);
+  106 |   });
+  107 | });
+  108 |
+  109 | // Test case #93: Create a team payment (one-time amount aka "bonus" payment)
+  110 | test.describe('Financials', () => {
+  111 |   test.beforeEach(async ({ page }) => {
+  112 |     // Common setup: Login to the application
+  113 |     const loginPage = new LoginPage(page);
+  114 |     await loginPage.goto();
+  115 |     await loginPage.login(TEST_USER.email, TEST_USER.password);
+  116 |     
+  117 |     // Wait for dashboard to load
+  118 |     await expect(page).toHaveURL(/.*\/dashboard.*/);
+  119 |   });
+  120 |   
+  121 |   test('Test Case #93: Create payment', async ({ page }) => {
+  122 |     // Initialize page objects
+  123 |     const paymentPage = new PaymentPage(page);
+  124 |     
+  125 |     // Navigate to Financials > Send payments page
+  126 |     await paymentPage.navigateToPaymentsPage();
+  127 |     
+  128 |     // Create a one-time payment (bonus)
+  129 |     await paymentPage.createOneTimePayment(
+  130 |       TEST_USER.fullName, 
+  131 |       '10.00', 
+  132 |       'Bonus payment for excellent work'
+  133 |     );
+  134 |   });
+  135 | });
+  136 |
+  137 | // Take screenshots on failure
+  138 | test.afterEach(async ({ page }, testInfo) => {
+  139 |   await takeScreenshotOnFailure(testInfo, page);
+  140 | }); 
+```

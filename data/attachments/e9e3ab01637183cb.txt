@@ -1,0 +1,311 @@
+# Test info
+
+- Name: Financials >> Test Case #93: Create payment
+- Location: C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:102:7
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('menuitem', { name: 'library_add_check Financials' })
+
+    at PaymentPage.navigateToPaymentsPage (C:\Users\Artem\hubstaff_test\tests\pages\payment-page.ts:40:31)
+    at C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:114:23
+```
+
+# Page snapshot
+
+```yaml
+- text: arrow_left_alt
+- link:
+  - /url: /dashboard
+  - img
+- navigation:
+  - link "Get started arrow_right_alt":
+    - /url: /getting_started/665529
+  - list:
+    - listitem:
+      - menuitem "star Favorites (0)"
+      - text: Use thestarto add pages to your favorites section
+    - listitem:
+      - menuitem "dashboard Dashboard"
+    - listitem:
+      - menuitem "schedule Timesheets"
+      - text: keyboard_arrow_left
+      - menu "Timesheets":
+        - listitem:
+          - menuitem "View & edit"
+        - listitem:
+          - menuitem "Approvals bolt"
+    - listitem:
+      - menuitem "query_stats Activity"
+      - text: keyboard_arrow_left
+      - menu "Activity":
+        - listitem:
+          - menuitem "Screenshots"
+        - listitem:
+          - menuitem "Apps"
+        - listitem:
+          - menuitem "URLs"
+    - listitem:
+      - menuitem "lightbulb Insights"
+      - text: keyboard_arrow_left
+      - menu "Insights":
+        - listitem:
+          - menuitem "Highlights"
+        - listitem:
+          - menuitem "Performance"
+        - listitem:
+          - menuitem "Unusual activity"
+        - listitem:
+          - menuitem "Smart notifications"
+    - listitem:
+      - menuitem "map Locations"
+      - text: keyboard_arrow_left
+      - menu "Locations":
+        - listitem:
+          - menuitem "Map"
+        - listitem:
+          - menuitem "Job sites"
+    - listitem:
+      - menuitem "library_add_check Project management"
+      - text: keyboard_arrow_left
+      - menu "Project management":
+        - listitem:
+          - menuitem "Projects"
+        - listitem:
+          - menuitem "To-dos"
+        - listitem:
+          - menuitem "Clients"
+    - listitem:
+      - menuitem "calendar_today Calendar"
+      - text: keyboard_arrow_left
+      - menu "Calendar":
+        - listitem:
+          - menuitem "Schedules"
+        - listitem:
+          - menuitem "Time off requests"
+    - listitem:
+      - menuitem "article Reports"
+      - text: keyboard_arrow_left
+      - menu "Reports":
+        - listitem:
+          - menuitem "Time & activity"
+        - listitem:
+          - menuitem "Daily totals (Weekly)"
+        - listitem:
+          - menuitem "Amounts owed"
+        - listitem:
+          - menuitem "Payments"
+        - listitem:
+          - menuitem "All reports"
+    - listitem:
+      - menuitem "person People"
+      - text: keyboard_arrow_left
+      - menu "People":
+        - listitem:
+          - menuitem "Members"
+        - listitem:
+          - menuitem "Teams bolt"
+    - listitem:
+      - menuitem "monetization_on Financials"
+      - text: keyboard_arrow_left
+      - menu "Financials":
+        - listitem:
+          - menuitem "Manage payroll bolt"
+        - listitem:
+          - menuitem "Create payments"
+        - listitem:
+          - menuitem "Past payments"
+        - listitem:
+          - menuitem "Invoices"
+        - listitem:
+          - menuitem "Expenses"
+    - listitem:
+      - menuitem "settings Settings"
+      - text: keyboard_arrow_left
+      - menu "Settings":
+        - listitem:
+          - menuitem "All settings"
+        - listitem:
+          - menuitem "Activity & tracking"
+        - listitem:
+          - menuitem "Enterprise"
+        - listitem:
+          - menuitem "Integrations"
+        - listitem:
+          - menuitem "Billing"
+- heading "What's new?" [level=4]
+- text:  
+- 'heading "Updated referrals program: refer a friend and get $300 🚀" [level=6]'
+- paragraph:
+  - time: Thu, Mar 20, 2025
+- paragraph: We’ve launched a new Hubstaff referral program! When you refer a business to Hubstaff and they sign up for an annual plan with a minimum of 5 seats, you'll receive a $300 gift card.
+- link "Refer a friend":
+  - /url: https://app.hubstaff.com/organizations#referral-dialog
+- text: 
+- 'heading "Time off and holidays: per country or employment type" [level=6]'
+- paragraph:
+  - time: Tue, Nov 12, 2024
+- paragraph: As you plan for the new year ahead, set up time off and holiday policies in Hubstaff. Ideal for managing remote teams, create policies per country or employment type.
+- link "Learn more":
+  - /url: https://support.hubstaff.com/paid-time-off-holidays-and-time-off-requests/#add-time-off
+- text: 
+- 'heading "NEW: Sidebar" [level=6]'
+- paragraph:
+  - time: Tue, Oct 29, 2024
+- paragraph: Add pages to your Favorites list to save time accessing your most used pages and reports. Hover over the page name in the sidebar and click the star icon to the right of the page name.
+- link " 0:00:00 ":
+  - /url: "#"
+- text: Pro trial expires in 12 days.  
+- button
+- link "J" [expanded]:
+  - /url: "#"
+- paragraph: 👋 Welcome, John!
+- paragraph: Let's get you started with Hubstaff so you can begin boosting your team's productivity.
+- text: 1. Review Activity Manage your team's productivity. 0 /3 Subscribe to a Report Review Team Insights Approve a Timesheet 2. Get Organized Get things ready for your team to work. 0 /2 Pick Projects Create To-Dos 3. Manage Team Invite your team to start trying Hubstaff. 0 /2 Create Teams Invite Members ➜ Continue to Review Team Insights
+- heading "Subscribe to a Report" [level=3]
+- paragraph: Pick a report that you’d find valuable to receive on a regular basis and we’ll make sure it lands in your inbox with up-to-date data from your team.
+- text: Time and Activity See team members' time worked, activity levels, and amounts earned per project/work orders. Subscribe Amounts owed See how much the hourly paid team members are currently owed. Subscribe Daily totals See team members' time worked, activity levels, and amount earned per days. Subscribe
+- region "Chat Widget":
+  - iframe
+  - img
+```
+
+# Test source
+
+```ts
+   1 | import { Page, expect, Locator } from '@playwright/test';
+   2 |
+   3 | /**
+   4 |  * Page Object class for the Payment page
+   5 |  */
+   6 | export class PaymentPage {
+   7 |   // Locators for payment page elements
+   8 |   private readonly financialsLink: Locator;
+   9 |   private readonly createPaymentsLink: Locator;
+   10 |   private readonly oneTimeAmountTab: Locator;
+   11 |   private readonly membersField: Locator;
+   12 |   private readonly amountPerMemberInput: Locator;
+   13 |   private readonly noteTextarea: Locator;
+   14 |   private readonly createPaymentButton: Locator;
+   15 |   private readonly paymentModal: Locator;
+   16 |   private readonly modalCreatePaymentButton: Locator;
+   17 |   private readonly notNowButton: Locator;
+   18 |   private readonly markedAsPaidNotification: Locator;
+   19 |   private readonly paymentsTable: Locator;
+   20 |
+   21 |   constructor(private readonly page: Page) {
+   22 |     this.financialsLink = page.getByRole('menuitem', { name: 'library_add_check Financials' });
+   23 |     this.createPaymentsLink = page.getByRole('menuitem', { name: 'library_add_check Create payments' });
+   24 |     this.oneTimeAmountTab = page.getByRole('tab', { name: 'One-time amount' });
+   25 |     this.membersField = page.locator('.members-field');
+   26 |     this.amountPerMemberInput = page.locator('input[placeholder="Amount per member"]');
+   27 |     this.noteTextarea = page.locator('textarea[placeholder="Add a note"]');
+   28 |     this.createPaymentButton = page.locator('button:has-text("Create payment")');
+   29 |     this.paymentModal = page.locator('text=Payment');
+   30 |     this.modalCreatePaymentButton = page.locator('.payment-modal >> button:has-text("Create payment")');
+   31 |     this.notNowButton = page.locator('button:has-text("Not now")');
+   32 |     this.markedAsPaidNotification = page.locator('text=Marked as paid');
+   33 |     this.paymentsTable = page.locator('table');
+   34 |   }
+   35 |
+   36 |   /**
+   37 |    * Navigate to the Financials > Send payments page
+   38 |    */
+   39 |   async navigateToPaymentsPage(): Promise<void> {
+>  40 |     await this.financialsLink.click();
+      |                               ^ TimeoutError: locator.click: Timeout 15000ms exceeded.
+   41 |     await this.createPaymentsLink.click();
+   42 |     
+   43 |     // Ensure One-time amount tab is selected
+   44 |     await this.oneTimeAmountTab.click();
+   45 |   }
+   46 |
+   47 |   /**
+   48 |    * Select a member to pay
+   49 |    */
+   50 |   async selectMember(memberName: string): Promise<void> {
+   51 |     await this.membersField.locator('text=Select a member').click();
+   52 |     await this.page.locator(`.members-list >> text=${memberName}`).click();
+   53 |     
+   54 |     // Verify member is selected
+   55 |     await expect(this.membersField).toContainText(memberName);
+   56 |   }
+   57 |
+   58 |   /**
+   59 |    * Enter payment amount
+   60 |    */
+   61 |   async enterAmount(amount: string): Promise<void> {
+   62 |     await this.amountPerMemberInput.fill(amount);
+   63 |     await expect(this.amountPerMemberInput).toHaveValue(amount);
+   64 |   }
+   65 |
+   66 |   /**
+   67 |    * Enter payment note
+   68 |    */
+   69 |   async enterNote(note: string): Promise<void> {
+   70 |     await this.noteTextarea.fill(note);
+   71 |     await expect(this.noteTextarea).toHaveValue(note);
+   72 |   }
+   73 |
+   74 |   /**
+   75 |    * Click the "Create payment" button
+   76 |    */
+   77 |   async clickCreatePaymentButton(): Promise<void> {
+   78 |     await this.createPaymentButton.click();
+   79 |   }
+   80 |
+   81 |   /**
+   82 |    * Click the "Create payment" button in the "Payment" modal
+   83 |    */
+   84 |   async clickCreatePaymentInModal(): Promise<void> {
+   85 |     await this.modalCreatePaymentButton.click();
+   86 |   }
+   87 |
+   88 |   /**
+   89 |    * Close the payment confirmation modal
+   90 |    */
+   91 |   async closePaymentConfirmationModal(): Promise<void> {
+   92 |     await this.notNowButton.click();
+   93 |   }
+   94 |
+   95 |   /**
+   96 |    * Verify payment confirmation
+   97 |    */
+   98 |   async verifyPaymentConfirmation(): Promise<void> {
+   99 |     await expect(this.markedAsPaidNotification).toBeVisible();
+  100 |   }
+  101 |
+  102 |   /**
+  103 |    * Verify payment details in the summary table
+  104 |    */
+  105 |   async verifyPaymentDetails(memberName: string, amount: string): Promise<void> {
+  106 |     await expect(this.paymentsTable).toContainText(memberName);
+  107 |     await expect(this.paymentsTable).toContainText('One time');
+  108 |     await expect(this.paymentsTable).toContainText(amount);
+  109 |     await expect(this.paymentsTable).toContainText('Pending');
+  110 |   }
+  111 |
+  112 |   /**
+  113 |    * Create a one-time payment
+  114 |    */
+  115 |   async createOneTimePayment(memberName: string, amount: string, note: string): Promise<void> {
+  116 |     await this.selectMember(memberName);
+  117 |     await this.enterAmount(amount);
+  118 |     await this.enterNote(note);
+  119 |     await this.clickCreatePaymentButton();
+  120 |     
+  121 |     // Verify payment modal
+  122 |     await expect(this.paymentModal).toBeVisible();
+  123 |     await expect(this.page.locator(`text=${memberName}`)).toBeVisible();
+  124 |     await expect(this.page.locator(`text=${amount}`)).toBeVisible();
+  125 |     
+  126 |     await this.clickCreatePaymentInModal();
+  127 |     await this.verifyPaymentConfirmation();
+  128 |     await this.closePaymentConfirmationModal();
+  129 |     await this.verifyPaymentDetails(memberName, amount);
+  130 |   }
+  131 | } 
+```

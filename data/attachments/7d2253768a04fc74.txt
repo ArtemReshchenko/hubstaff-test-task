@@ -1,0 +1,300 @@
+# Test info
+
+- Name: Project Management >> Test Case #69: Create project
+- Location: C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:84:7
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByText('New projectCancelSave').getByText('Save')
+
+    at ProjectPage.clickSaveButton (C:\Users\Artem\hubstaff_test\tests\pages\project-page.ts:45:27)
+    at ProjectPage.createProject (C:\Users\Artem\hubstaff_test\tests\pages\project-page.ts:62:16)
+    at C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:98:5
+```
+
+# Page snapshot
+
+```yaml
+- text: arrow_left_alt
+- link:
+  - /url: /dashboard
+  - img
+- navigation:
+  - link "Get started arrow_right_alt":
+    - /url: /getting_started/665529
+  - list:
+    - listitem:
+      - menuitem "star Favorites (0)"
+      - text: Use thestarto add pages to your favorites section
+    - listitem:
+      - menuitem "dashboard Dashboard"
+    - listitem:
+      - menuitem "schedule Timesheets"
+      - text: keyboard_arrow_left
+      - menu "Timesheets":
+        - listitem:
+          - menuitem "View & edit"
+        - listitem:
+          - menuitem "Approvals bolt"
+    - listitem:
+      - menuitem "query_stats Activity"
+      - text: keyboard_arrow_left
+      - menu "Activity":
+        - listitem:
+          - menuitem "Screenshots"
+        - listitem:
+          - menuitem "Apps"
+        - listitem:
+          - menuitem "URLs"
+    - listitem:
+      - menuitem "lightbulb Insights"
+      - text: keyboard_arrow_left
+      - menu "Insights":
+        - listitem:
+          - menuitem "Highlights"
+        - listitem:
+          - menuitem "Performance"
+        - listitem:
+          - menuitem "Unusual activity"
+        - listitem:
+          - menuitem "Smart notifications"
+    - listitem:
+      - menuitem "map Locations"
+      - text: keyboard_arrow_left
+      - menu "Locations":
+        - listitem:
+          - menuitem "Map"
+        - listitem:
+          - menuitem "Job sites"
+    - listitem:
+      - menuitem "library_add_check Project management"
+      - text: keyboard_arrow_left
+      - menu "Project management":
+        - listitem:
+          - menuitem "Projects"
+        - listitem:
+          - menuitem "To-dos"
+        - listitem:
+          - menuitem "Clients"
+    - listitem:
+      - menuitem "calendar_today Calendar"
+      - text: keyboard_arrow_left
+      - menu "Calendar":
+        - listitem:
+          - menuitem "Schedules"
+        - listitem:
+          - menuitem "Time off requests"
+    - listitem:
+      - menuitem "article Reports"
+      - text: keyboard_arrow_left
+      - menu "Reports":
+        - listitem:
+          - menuitem "Time & activity"
+        - listitem:
+          - menuitem "Daily totals (Weekly)"
+        - listitem:
+          - menuitem "Amounts owed"
+        - listitem:
+          - menuitem "Payments"
+        - listitem:
+          - menuitem "All reports"
+    - listitem:
+      - menuitem "person People"
+      - text: keyboard_arrow_left
+      - menu "People":
+        - listitem:
+          - menuitem "Members"
+        - listitem:
+          - menuitem "Teams bolt"
+    - listitem:
+      - menuitem "monetization_on Financials"
+      - text: keyboard_arrow_left
+      - menu "Financials":
+        - listitem:
+          - menuitem "Manage payroll bolt"
+        - listitem:
+          - menuitem "Create payments"
+        - listitem:
+          - menuitem "Past payments"
+        - listitem:
+          - menuitem "Invoices"
+        - listitem:
+          - menuitem "Expenses"
+    - listitem:
+      - menuitem "settings Settings"
+      - text: keyboard_arrow_left
+      - menu "Settings":
+        - listitem:
+          - menuitem "All settings"
+        - listitem:
+          - menuitem "Activity & tracking"
+        - listitem:
+          - menuitem "Enterprise"
+        - listitem:
+          - menuitem "Integrations"
+        - listitem:
+          - menuitem "Billing"
+- heading "What's new?" [level=4]
+- text:  
+- 'heading "Updated referrals program: refer a friend and get $300 🚀" [level=6]'
+- paragraph:
+  - time: Thu, Mar 20, 2025
+- paragraph: We’ve launched a new Hubstaff referral program! When you refer a business to Hubstaff and they sign up for an annual plan with a minimum of 5 seats, you'll receive a $300 gift card.
+- link "Refer a friend":
+  - /url: https://app.hubstaff.com/organizations#referral-dialog
+- text: 
+- 'heading "Time off and holidays: per country or employment type" [level=6]'
+- paragraph:
+  - time: Tue, Nov 12, 2024
+- paragraph: As you plan for the new year ahead, set up time off and holiday policies in Hubstaff. Ideal for managing remote teams, create policies per country or employment type.
+- link "Learn more":
+  - /url: https://support.hubstaff.com/paid-time-off-holidays-and-time-off-requests/#add-time-off
+- text: 
+- 'heading "NEW: Sidebar" [level=6]'
+- paragraph:
+  - time: Tue, Oct 29, 2024
+- paragraph: Add pages to your Favorites list to save time accessing your most used pages and reports. Hover over the page name in the sidebar and click the star icon to the right of the page name.
+- link " 0:00:00 ":
+  - /url: "#"
+- text: Pro trial expires in 13 days.
+- link "":
+  - /url: /help/projects.dialog
+- text:  
+- button
+- link "J" [expanded]:
+  - /url: "#"
+- heading "Projects" [level=2]
+- list:
+  - listitem:
+    - link "Active (0)":
+      - /url: "#"
+  - listitem:
+    - link "Archived (0)":
+      - /url: "#"
+- searchbox "Search projects"
+- text:  Import projects Add project
+- button "Batch actions "
+- text: 0/0 selected
+- table:
+  - rowgroup:
+    - row "Name Teams Members To-dos Budget":
+      - cell
+      - cell "Name"
+      - cell "Teams"
+      - cell "Members"
+      - cell "To-dos"
+      - cell "Budget"
+      - cell
+- heading "No projects" [level=4]
+- heading "New project" [level=4]
+- list:
+  - listitem: General
+  - listitem: Members
+  - listitem: Budget & Limits
+  - listitem: Teams
+- text: Project Names * 
+- textbox "Add project names separated by new lines": Project 1745855247245-8055
+- checkbox " Billable" [checked]
+- text:  Billable
+- checkbox " Disable activity "
+- text:  Disable activity 
+- checkbox " Disable idle time "
+- text:  Disable idle time  Client
+- combobox "Select a client": Select a client 
+- img
+- link "Learn more":
+  - /url: /learn_more/tasks/665529.dialog?w=1
+- text: An agile project management tool with sprints and visual workflows.
+- button "Cancel"
+- button "Save"
+- region "Chat Widget":
+  - iframe
+  - img
+```
+
+# Test source
+
+```ts
+   1 | import { Page, expect, Locator } from '@playwright/test';
+   2 |
+   3 | export class ProjectPage {
+   4 |   private readonly projectManagementLink: Locator;
+   5 |   private readonly addProjectButton: Locator;
+   6 |   private readonly projectNameInput: Locator;
+   7 |   private readonly saveButton: Locator;
+   8 |   private readonly newProjectModal: Locator;
+   9 |   private readonly projectCreatedNotification: Locator;
+  10 |   private readonly projectsTable: Locator;
+  11 |   private readonly projectTableRow: Locator;
+  12 |   private readonly projectTableCell: Locator;
+  13 |   private readonly deleteProjectModal: Locator;
+  14 |   private readonly deleteConfirmCheckbox: Locator;
+  15 |
+  16 |   constructor(private readonly page: Page) {
+  17 |     this.projectManagementLink = this.page.getByRole('menuitem', { name: 'library_add_check Project' });
+  18 |     this.addProjectButton = page.getByText('Add project');
+  19 |     this.newProjectModal = page.getByText('New projectCancelSave');
+  20 |     this.projectNameInput = page.getByPlaceholder('Add project names separated by new lines');
+  21 |     this.saveButton = this.newProjectModal.getByText('Save');
+  22 |     this.projectCreatedNotification = page.locator('.jGrowl-message');
+  23 |     this.projectsTable = page.locator('table tbody');
+  24 |     this.projectTableRow = this.projectsTable.locator('tr');
+  25 |     this.projectTableCell = this.projectTableRow.locator('td');
+  26 |     this.deleteProjectModal = page.getByText('Delete project By deleting');
+  27 |     this.deleteConfirmCheckbox = this.deleteProjectModal.locator('#delete-checkbox');
+  28 |   }
+  29 |
+  30 |   async navigateToProjectsPage(): Promise<void> {
+  31 |     await this.projectManagementLink.click();
+  32 |     await expect(this.page).toHaveURL(/.*\/projects.*/);
+  33 |   }
+  34 |
+  35 |   async clickAddProjectButton(): Promise<void> {
+  36 |     await this.addProjectButton.click();
+  37 |     await expect(this.newProjectModal).toBeVisible();
+  38 |   }
+  39 |
+  40 |   async fillProjectName(projectName: string): Promise<void> {
+  41 |     await this.projectNameInput.fill(projectName);
+  42 |   }
+  43 |
+  44 |   async clickSaveButton(): Promise<void> {
+> 45 |     await this.saveButton.click();
+     |                           ^ TimeoutError: locator.click: Timeout 15000ms exceeded.
+  46 |   }
+  47 |
+  48 |   async verifyProjectCreatedNotification(): Promise<void> {
+  49 |     await expect(this.projectCreatedNotification).toBeVisible();
+  50 |   }
+  51 |
+  52 |   async verifyProjectInList(projectName: string): Promise<void> {
+  53 |     const projectInList = this.projectTableCell.filter({ hasText: projectName });
+  54 |     await expect(projectInList).toBeVisible();
+  55 |   }
+  56 |
+  57 |   async createProject(projectName: string): Promise<void> {
+  58 |     await this.clickAddProjectButton();
+  59 |     await expect(this.newProjectModal).toBeVisible();
+  60 |     
+  61 |     await this.fillProjectName(projectName);
+  62 |     await this.clickSaveButton();
+  63 |     
+  64 |     await this.verifyProjectCreatedNotification();
+  65 |     await this.verifyProjectInList(projectName);
+  66 |   }
+  67 |
+  68 |   async deleteProject(projectName: string): Promise<void> {
+  69 |     const projectInList = this.projectTableRow.filter({ hasText: projectName });
+  70 |     const actionsDropdown = projectInList.locator('.dropdown-toggle');
+  71 |     await actionsDropdown.selectOption('Delete project');
+  72 |     await expect(this.deleteProjectModal).toBeVisible();
+  73 |     await this.deleteProjectModal.getByText('Delete').click();
+  74 |     await expect(this.projectCreatedNotification).toBeVisible();
+  75 |     await this.deleteConfirmCheckbox.click();
+  76 |     await this.deleteProjectModal.getByText('Delete').click();
+  77 |   }
+  78 | } 
+```

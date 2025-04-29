@@ -1,0 +1,2 @@
+[EmailHelper] Initializing MailSlurp with API key (5e7...516)
+Created temporary email address: 9ec7313b-1da5-441a-a501-09e60067352b@mailslurp.biz

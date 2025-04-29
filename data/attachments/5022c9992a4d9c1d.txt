@@ -1,0 +1,320 @@
+# Test info
+
+- Name: Financials >> Test Case #93: Create payment
+- Location: C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:102:7
+
+# Error details
+
+```
+Error: expect.toBeVisible: Error: strict mode violation: locator('.modal-dialog') resolved to 3 elements:
+    1) <div class="modal-dialog">…</div> aka locator('div').filter({ hasText: 'Request a live demo of' }).nth(2)
+    2) <div class="modal-dialog top">…</div> aka locator('div').filter({ hasText: 'Referrals & DiscountsHow it' }).nth(2)
+    3) <div class="modal-dialog centered">…</div> aka locator('div').filter({ hasText: 'Refer companies to Hubstaff and earn a $300 cash bonus.Receive a $300 gift card' }).nth(2)
+
+Call log:
+  - expect.toBeVisible with timeout 15000ms
+  - waiting for locator('.modal-dialog')
+
+    at PaymentPage.createOneTimePayment (C:\Users\Artem\hubstaff_test\tests\pages\payment-page.ts:101:37)
+    at C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:116:5
+```
+
+# Page snapshot
+
+```yaml
+- text: arrow_left_alt
+- link:
+  - /url: /dashboard
+  - img
+- navigation:
+  - link "Get started arrow_right_alt":
+    - /url: /getting_started/665529
+  - list:
+    - listitem:
+      - menuitem "star Favorites (0)"
+      - text: Use thestarto add pages to your favorites section
+    - listitem:
+      - menuitem "dashboard Dashboard"
+    - listitem:
+      - menuitem "schedule Timesheets"
+      - text: keyboard_arrow_left
+      - menu "Timesheets":
+        - listitem:
+          - menuitem "View & edit"
+        - listitem:
+          - menuitem "Approvals bolt"
+    - listitem:
+      - menuitem "query_stats Activity"
+      - text: keyboard_arrow_left
+      - menu "Activity":
+        - listitem:
+          - menuitem "Screenshots"
+        - listitem:
+          - menuitem "Apps"
+        - listitem:
+          - menuitem "URLs"
+    - listitem:
+      - menuitem "lightbulb Insights"
+      - text: keyboard_arrow_left
+      - menu "Insights":
+        - listitem:
+          - menuitem "Highlights"
+        - listitem:
+          - menuitem "Performance"
+        - listitem:
+          - menuitem "Unusual activity"
+        - listitem:
+          - menuitem "Smart notifications"
+    - listitem:
+      - menuitem "map Locations"
+      - text: keyboard_arrow_left
+      - menu "Locations":
+        - listitem:
+          - menuitem "Map"
+        - listitem:
+          - menuitem "Job sites"
+    - listitem:
+      - menuitem "library_add_check Project management"
+      - text: keyboard_arrow_left
+      - menu "Project management":
+        - listitem:
+          - menuitem "Projects"
+        - listitem:
+          - menuitem "To-dos"
+        - listitem:
+          - menuitem "Clients"
+    - listitem:
+      - menuitem "calendar_today Calendar"
+      - text: keyboard_arrow_left
+      - menu "Calendar":
+        - listitem:
+          - menuitem "Schedules"
+        - listitem:
+          - menuitem "Time off requests"
+    - listitem:
+      - menuitem "article Reports"
+      - text: keyboard_arrow_left
+      - menu "Reports":
+        - listitem:
+          - menuitem "Time & activity"
+        - listitem:
+          - menuitem "Daily totals (Weekly)"
+        - listitem:
+          - menuitem "Amounts owed"
+        - listitem:
+          - menuitem "Payments"
+        - listitem:
+          - menuitem "All reports"
+    - listitem:
+      - menuitem "person People"
+      - text: keyboard_arrow_left
+      - menu "People":
+        - listitem:
+          - menuitem "Members"
+        - listitem:
+          - menuitem "Teams bolt"
+    - listitem:
+      - menuitem "monetization_on Financials"
+      - text: keyboard_arrow_left
+      - menu "Financials":
+        - listitem:
+          - menuitem "Manage payroll bolt"
+        - listitem:
+          - menuitem "Create payments"
+        - listitem:
+          - menuitem "Past payments"
+        - listitem:
+          - menuitem "Invoices"
+        - listitem:
+          - menuitem "Expenses"
+    - listitem:
+      - menuitem "settings Settings"
+      - text: keyboard_arrow_left
+      - menu "Settings":
+        - listitem:
+          - menuitem "All settings"
+        - listitem:
+          - menuitem "Activity & tracking"
+        - listitem:
+          - menuitem "Enterprise"
+        - listitem:
+          - menuitem "Integrations"
+        - listitem:
+          - menuitem "Billing"
+- heading "What's new?" [level=4]
+- text:  
+- 'heading "Updated referrals program: refer a friend and get $300 🚀" [level=6]'
+- paragraph:
+  - time: Thu, Mar 20, 2025
+- paragraph: We’ve launched a new Hubstaff referral program! When you refer a business to Hubstaff and they sign up for an annual plan with a minimum of 5 seats, you'll receive a $300 gift card.
+- link "Refer a friend":
+  - /url: https://app.hubstaff.com/organizations#referral-dialog
+- text: 
+- 'heading "Time off and holidays: per country or employment type" [level=6]'
+- paragraph:
+  - time: Tue, Nov 12, 2024
+- paragraph: As you plan for the new year ahead, set up time off and holiday policies in Hubstaff. Ideal for managing remote teams, create policies per country or employment type.
+- link "Learn more":
+  - /url: https://support.hubstaff.com/paid-time-off-holidays-and-time-off-requests/#add-time-off
+- text: 
+- 'heading "NEW: Sidebar" [level=6]'
+- paragraph:
+  - time: Tue, Oct 29, 2024
+- paragraph: Add pages to your Favorites list to save time accessing your most used pages and reports. Hover over the page name in the sidebar and click the star icon to the right of the page name.
+- link " 0:00:00 ":
+  - /url: "#"
+- text: Pro trial expires in 12 days.
+- link "":
+  - /url: /help/team_payments.dialog
+- text:  
+- button
+- link "J" [expanded]:
+  - /url: "#"
+- heading "Send payments" [level=2]
+- list:
+  - listitem:
+    - link "Pay for hours":
+      - /url: /organizations/665529/team_payments?filters%5Breport_type%5D=overview
+  - listitem:
+    - link "Approved timesheets":
+      - /url: /organizations/665529/team_payments/timesheets
+  - listitem:
+    - link "One-time amount":
+      - /url: /organizations/665529/team_payments/bonus
+- radio "Manual" [checked]
+- text: Manual
+- radio "Import CSV"
+- text: Import CSV Members*
+- link "Select all":
+  - /url: "#"
+- combobox:
+  - list:
+    - text: ×
+    - listitem "John Doyl":  × John Doyl
+    - listitem:
+      - textbox
+- text: Amount per member*
+- spinbutton "Amount per member*": "0.005"
+- text: USD
+- textbox "Enter a note about the payment": Bonus payment for excellent work
+- text: Notes are visible to members.
+- link "Create payment":
+  - /url: /organizations/665529/team_payments/new.dialog
+- region "Chat Widget":
+  - iframe
+  - img
+```
+
+# Test source
+
+```ts
+   1 | import { Page, expect, Locator } from '@playwright/test';
+   2 |
+   3 | /**
+   4 |  * Page Object class for the Payment page
+   5 |  */
+   6 | export class PaymentPage {
+   7 |   // Locators for payment page elements
+   8 |   private readonly financialsLink = this.page.getByRole('menuitem', { name: 'Financials' });
+   9 |   private readonly createPaymentsLink = this.page.getByRole('menuitem', { name: 'Create payments' });
+   10 |   private readonly oneTimeAmountTab = this.page.getByRole('link', { name: 'One-time amount' });
+   11 |   private readonly selectAllMembers = this.page.locator('.select-all');
+   12 |   private readonly selectedMember = (name: string): Locator => {
+   13 |     return this.page.locator('.select2-selection__choice').getByText(name);
+   14 |   };
+   15 |   private readonly amountPerMemberInput = this.page.locator('input#team_payment_total_amount');
+   16 |   private readonly noteTextarea = this.page.locator('textarea[placeholder="Enter a note about the payment"]');
+   17 |   private readonly createPaymentButton = this.page.getByRole('link', { name: 'Create payment' });
+   18 |   private readonly paymentModal = this.page.locator('.modal-dialog');
+   19 |   private readonly modalCreatePaymentButton = this.paymentModal.getByText('Create payment');
+   20 |   private readonly notNowButton = this.paymentModal.getByText('Not now');
+   21 |   private readonly exportPaymentTab = this.page.locator('#export_payment');
+   22 |   private readonly paymentsTable = this.page.locator('table');
+   23 |
+   24 |   constructor(private readonly page: Page) {}
+   25 |
+   26 |   /**
+   27 |    * Navigate to the Financials > Send payments page
+   28 |    */
+   29 |   async navigateToPaymentsPage(): Promise<void> {
+   30 |     await this.financialsLink.click();
+   31 |     await this.createPaymentsLink.click();
+   32 |     
+   33 |     // Ensure One-time amount tab is selected
+   34 |     await this.oneTimeAmountTab.click();
+   35 |   }
+   36 |
+   37 |   /**
+   38 |    * Select a member to pay
+   39 |    */
+   40 |   async selectMember(memberName: string): Promise<void> {
+   41 |     await this.selectAllMembers.click();
+   42 |     await expect(this.selectedMember(memberName)).toBeVisible();
+   43 |   }
+   44 |
+   45 |   /**
+   46 |    * Enter payment amount
+   47 |    */
+   48 |   async enterAmount(amount: string): Promise<void> {
+   49 |     await this.amountPerMemberInput.fill(amount);
+   50 |     await expect(this.amountPerMemberInput).toHaveValue(amount);
+   51 |   }
+   52 |
+   53 |   /**
+   54 |    * Enter payment note
+   55 |    */
+   56 |   async enterNote(note: string): Promise<void> {
+   57 |     await this.noteTextarea.fill(note);
+   58 |     await expect(this.noteTextarea).toHaveValue(note);
+   59 |   }
+   60 |
+   61 |   /**
+   62 |    * Click the "Create payment" button
+   63 |    */
+   64 |   async clickCreatePaymentButton(): Promise<void> {
+   65 |     await this.createPaymentButton.click();
+   66 |   }
+   67 |
+   68 |   /**
+   69 |    * Click the "Create payment" button in the "Payment" modal
+   70 |    */
+   71 |   async clickCreatePaymentInModal(): Promise<void> {
+   72 |     await this.modalCreatePaymentButton.click();
+   73 |   }
+   74 |
+   75 |   /**
+   76 |    * Close the payment confirmation modal
+   77 |    */
+   78 |   async closePaymentConfirmationModal(): Promise<void> {
+   79 |     await this.notNowButton.click();
+   80 |   }
+   81 |
+   82 |   /**
+   83 |    * Verify payment details in the summary table
+   84 |    */
+   85 |   async verifyPaymentDetails(memberName: string): Promise<void> {
+   86 |     await expect(this.paymentsTable).toContainText(memberName);
+   87 |     await expect(this.paymentsTable).toContainText('Bonus');
+   88 |     await expect(this.paymentsTable).toContainText('Pending');
+   89 |   }
+   90 |
+   91 |   /**
+   92 |    * Create a one-time payment
+   93 |    */
+   94 |   async createOneTimePayment(memberName: string, amount: string, note: string): Promise<void> {
+   95 |     await this.selectMember(memberName);
+   96 |     await this.enterAmount(amount);
+   97 |     await this.enterNote(note);
+   98 |     await this.clickCreatePaymentButton();
+   99 |     
+  100 |     // Verify payment modal
+> 101 |     await expect(this.paymentModal).toBeVisible();
+      |                                     ^ Error: expect.toBeVisible: Error: strict mode violation: locator('.modal-dialog') resolved to 3 elements:
+  102 |     
+  103 |     await this.clickCreatePaymentInModal();
+  104 |     await expect(this.exportPaymentTab).toBeVisible({timeout: 10000});
+  105 |     await this.closePaymentConfirmationModal();
+  106 |     await this.verifyPaymentDetails(memberName);
+  107 |   }
+  108 | } 
+```
