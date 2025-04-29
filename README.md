@@ -208,4 +208,4 @@ For handling credentials and API keys:
 
 ## 👥 Authors
 
-- **Your Name** - _Initial work_
+- **Artem Reshchenko** - _Initial work_
