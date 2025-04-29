@@ -1,0 +1,520 @@
+# Test info
+
+- Name: Hubstaff Signup and Login >> Test Case #83: Signup for the 14-day free trial
+- Location: C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:17:7
+
+# Error details
+
+```
+TimeoutError: page.waitForSelector: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator('.marketing-page') to be visible
+
+    at MarketingPage.verifyOnMarketingPage (C:\Users\Artem\hubstaff_test\tests\pages\marketing-page.ts:19:21)
+    at C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:26:25
+```
+
+# Page snapshot
+
+```yaml
+- dialog "This website uses cookies":
+  - tabpanel "Consent":
+    - heading "This website uses cookies" [level=1]
+    - text: We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services.
+    - group "Consent Selection":
+      - text: Consent Selection
+      - strong: Necessary
+      - checkbox "Necessary" [checked] [disabled]
+      - strong: Preferences
+      - checkbox "Preferences" [checked]
+      - strong: Statistics
+      - checkbox "Statistics" [checked]
+      - strong: Marketing
+      - checkbox "Marketing" [checked]
+    - link "Show details":
+      - /url: "#"
+  - button "OK"
+- banner:
+  - navigation:
+    - link "logo":
+      - /url: /
+    - list:
+      - listitem:
+        - button "Toggle product dropdown": Product
+      - listitem:
+        - button "Toggle solutions dropdown": Solutions
+      - listitem:
+        - button "Toggle resources dropdown": Resources
+      - listitem:
+        - link "Pricing":
+          - /url: /pricing
+      - listitem:
+        - link "Demo":
+          - /url: /demo
+      - listitem:
+        - link "Free 14-day trial":
+          - /url: /signup
+      - listitem:
+        - link "Sign in":
+          - /url: https://app.hubstaff.com/login
+- main:
+  - text: Spring Leader '25 / 4.5 stars 1200+ Reviews
+  - heading "Time tracking software for the globa workforce" [level=1]
+  - paragraph: Integrated time tracking, productivity metrics, and payroll for your distributed team.
+  - textbox "Enter your work email"
+  - button "Create account"
+  - text: Free 14-day trial No credit card required Cancel anytime
+  - tablist:
+    - tab "Global time tracking" [selected]
+    - tab "Productivity data"
+    - tab "Flexible payroll"
+    - tab "Attendance management"
+    - tab "Project cost and budgeting"
+  - button "Previous tab"
+  - button "Next tab"
+  - tabpanel "Global time tracking":
+    - paragraph: Multi-device time clock software
+    - paragraph:
+      - text: Save hours each week with our easy-to-use
+      - link "employee time tracking.":
+        - /url: /employee-time-tracking
+      - text: Then, convert desktop, web, mobile, or GPS time tracking data to automated timesheets.
+  - heading "Time tracking & productivity metrics trusted by 112,000+ businesses" [level=2]
+  - text: 500k+ Active users 21M+ Total hours tracked 4M+ Tasks completed 300K+ Payments Time tracking tools to maximize your team’s productivity
+  - paragraph: See what our customers say
+  - link "0% cost savings by eliminating wasted tasks 10% - 25% Project savings 25% Cost reduction from bad hires We work in a lot of different industries, so I can’t always know what’s a 45-minute task and what’s a four-hour task. With tools like Hubstaff, you can tell. You then decide if a whole project should’ve taken 16 hours or if someone is just not the right fit. Solomon Thimothy OneIMS President":
+    - /url: customers/oneims
+    - text: 0%
+    - heading "cost savings by eliminating wasted tasks" [level=3]
+    - paragraph
+    - heading "10% - 25% Project savings" [level=5]
+    - separator
+    - heading "25% Cost reduction from bad hires" [level=5]
+    - text: We work in a lot of different industries, so I can’t always know what’s a 45-minute task and what’s a four-hour task. With tools like Hubstaff, you can tell. You then decide if a whole project should’ve taken 16 hours or if someone is just not the right fit. Solomon Thimothy OneIMS President
+  - link "0% faster project completion Bookkeeping reduced from 1 week to 1-2 days Over 100% ROI By improving productivity and visibility My people need to document their work so that I can have visibility into what they did during the day. Using Hubstaff reduces the meeting time I needed and gives me clarity into what was done and what wasn’t. Brian Dordevic Director of Strategic Planning":
+    - /url: customers/alpha-efficiency
+    - text: 0%
+    - heading "faster project completion" [level=3]
+    - heading "Bookkeeping reduced from 1 week to 1-2 days" [level=5]
+    - separator
+    - heading "Over 100% ROI By improving productivity and visibility" [level=5]
+    - text: My people need to document their work so that I can have visibility into what they did during the day. Using Hubstaff reduces the meeting time I needed and gives me clarity into what was done and what wasn’t. Brian Dordevic Director of Strategic Planning
+  - link "0% reduction in check-in meeting time 10% - 25% Increase in activity level 100% confidence In running a remote operation Without Hubstaff, I wouldn’t be confident in running a remote business. We used the platform from the first day we opened the office in India, so I knew it would give me the insights and confidence to commit to remote working. Ross Crawford Managing Director":
+    - /url: customers/mr-digital
+    - text: 0%
+    - heading "reduction in check-in meeting time" [level=3]
+    - heading "10% - 25% Increase in activity level" [level=5]
+    - separator
+    - heading "100% confidence In running a remote operation" [level=5]
+    - text: Without Hubstaff, I wouldn’t be confident in running a remote business. We used the platform from the first day we opened the office in India, so I knew it would give me the insights and confidence to commit to remote working. Ross Crawford Managing Director
+  - list:
+    - listitem:
+      - term
+      - definition: 4.6 out of 5 stars from 1500 reviews
+    - listitem:
+      - term
+      - definition: 4.6 out of 5 stars from 1500 reviews
+    - listitem:
+      - term
+      - definition: 4.5 out of 5 stars from 1270 reviews
+  - heading "See Hubstaff in action" [level=1]
+  - paragraph: Discover how our all-in-one workforce management tool streamlines time tracking, productivity, payroll, and more—try our interactive demo today!
+  - link "Try a demo now":
+    - /url: /demo-experience
+  - text: "BETTER WORKFORCE MANAGEMENT STARTS WITH:"
+  - heading "Tangible time tracking data for more profitable decisions" [level=2]
+  - heading "Master time management" [level=2]
+  - paragraph: It's simple psychology. When your team tracks time with Hubstaff, everyone is more aware of how they spend each minute of their day. This helps to improve focus, keep your team on task, and boost productivity.
+  - heading "Real-time productivity metrics" [level=3]
+  - paragraph: Our Insights add-on helps optimize workforces based on utilization, efficiency, and productivity.
+  - heading "Detect unusual activity" [level=3]
+  - paragraph: Get notified if Hubstaff detects apps or hardware that are used to generate fake activity.
+  - link "More about productivity benchmarks":
+    - /url: /product/insights
+  - heading "Automate team operations" [level=2]
+  - paragraph: Hubstaff tackles time-draining admin work, provides peace of mind, and helps ensure that your team is working hard. With real-time workforce management features, you can balance and track billable hours, boost productivity, and seamlessly automate invoicing and payroll.
+  - heading "Advanced reporting" [level=3]
+  - paragraph: With 20+ customizable reports for tracking employee activity, project progress, and budget adherence, Hubstaff streamlines decision-making across your entire business.
+  - heading "Easy-to-use dashboards" [level=3]
+  - paragraph:
+    - text: Access
+    - link "data-driven workforce analytics dashboards":
+      - /url: /workforce-analytics
+    - text: for managers and employees, reducing disruptions and check-in meetings.
+  - link "Workforce management software":
+    - /url: /workforce-management
+  - heading "Find and fix money leaks" [level=2]
+  - paragraph:
+    - text: Is a project or client hurting your profit margins? With Hubstaff, you'll get detailed time reports and dashboards that provide real-time insights into where your company's billable hours are going. From there, you can
+    - link "use these reports":
+      - /url: /time-report
+    - text: to see how your decisions impact revenue.
+  - heading "Get your priorities straight" [level=3]
+  - paragraph: Reports show you which projects are most profitable and which ones drain your team’s time.
+  - heading "Control expenses" [level=3]
+  - paragraph:
+    - link "Track time and expenses":
+      - /url: /time-tracking/time-expense-tracking
+    - text: and set weekly budgets or time limits for teams. Get alerts when projects go over.
+  - link "Project cost tracking":
+    - /url: /project-cost-tracking-software
+  - heading "Streamline payments with easy online timesheets" [level=2]
+  - paragraph: Stop wasting time and money on outdated timesheets and convoluted payments. Seamlessly convert time tracking data to timesheets and pay teams more efficiently.
+  - heading "Real-time timesheets" [level=3]
+  - paragraph:
+    - text: The second you begin tracking time, Hubstaff creates real-time, itemized
+    - link "timesheets":
+      - /url: /employee-timesheet-software
+    - text: . Users can add manual hours, leave notes, and submit them to management for one-click approval.
+  - paragraph
+  - heading "Versatile payroll" [level=3]
+  - paragraph:
+    - text: Stop the payroll migration migraines with one central payment app. Integrate with popular providers like PayPal, Wise, and Deel to streamline
+    - link "payroll":
+      - /url: /time-tracking-payroll-software
+    - text: directly from the Hubstaff app.
+  - link "Intuitive timesheets":
+    - /url: /employee-timesheet-software
+  - heading "Hubstaff’s privacy-first guiding principles" [level=2]
+  - tablist:
+    - 'tab "Principle 1: Transparency Achieve transparency in your team''s productivity — without compromising privacy. That’s why Hubstaff offers the option to blur apps, URLs, and screenshots. Plus: No keystroke logging No email monitoring No access to cameras and webcams" [selected]':
+      - 'button "Principle 1: Transparency" [expanded]':
+        - 'heading "Principle 1: Transparency" [level=3]'
+      - paragraph: "Achieve transparency in your team's productivity — without compromising privacy. That’s why Hubstaff offers the option to blur apps, URLs, and screenshots. Plus:"
+      - list:
+        - listitem:
+          - paragraph: No keystroke logging
+        - listitem:
+          - paragraph: No email monitoring
+        - listitem:
+          - paragraph: No access to cameras and webcams
+    - 'tab "Principle 2: Access"':
+      - 'button "Principle 2: Access"':
+        - 'heading "Principle 2: Access" [level=3]'
+    - 'tab "Principle 3: Control"':
+      - 'button "Principle 3: Control"':
+        - 'heading "Principle 3: Control" [level=3]'
+  - heading "Enterprise-Grade Solutions" [level=3]
+  - text: Secure infrastructure built to grow with your team.
+  - link "Contact sales":
+    - /url: /demo
+  - link "Learn more":
+    - /url: /enterprise
+  - paragraph: Secure access, complete control
+  - list:
+    - listitem:
+      - paragraph: Single sign-on
+    - listitem:
+      - paragraph: Custom roles and permissions
+    - listitem:
+      - paragraph: Follows best security practices
+  - paragraph: Elevate your workflow
+  - list:
+    - listitem:
+      - paragraph: Advanced reporting
+    - listitem:
+      - paragraph: Background timer
+    - listitem:
+      - paragraph: On-premise/self-hosted
+  - paragraph: Effortless onboarding
+  - list:
+    - listitem:
+      - paragraph: Concierge setup
+    - listitem:
+      - paragraph: MSI Installer
+    - listitem:
+      - paragraph: Account provisioning
+  - heading "Over 35 integrations" [level=2]
+  - paragraph: Run your business more efficiently with integrations for time tracking, project management, accounting, payroll, team management, and more.
+  - link "View all integrations":
+    - /url: /integrations
+  - heading "Global time tracking that adapts to any industry" [level=2]
+  - paragraph: Seamlessly manage your global team from one powerful platform.
+  - link "Staffing and Recruiting Manage campaigns, billable hours, client budgets, and project budgets while gaining actionable insights to optimize performance.":
+    - /url: /talent-acquisition
+    - paragraph: Staffing and Recruiting
+    - paragraph: Manage campaigns, billable hours, client budgets, and project budgets while gaining actionable insights to optimize performance.
+  - link "Software Development Optimize development cycles, track billable hours, manage tasks, and streamline payroll with real-time insights that improve team performance and project accuracy.":
+    - /url: /time-tracking-software-development
+    - paragraph: Software Development
+    - paragraph: Optimize development cycles, track billable hours, manage tasks, and streamline payroll with real-time insights that improve team performance and project accuracy.
+  - link "E-Commerce Streamline E-Commerce operations with advanced time tracking, productivity insights, and automated payroll, helping you manage remote teams, track hours, and simplify invoicing.":
+    - /url: /time-tracking-ecommerce
+    - paragraph: E-Commerce
+    - paragraph: Streamline E-Commerce operations with advanced time tracking, productivity insights, and automated payroll, helping you manage remote teams, track hours, and simplify invoicing.
+  - link "Consulting Track billable and non-billable hours for each client, manage project expenses, set budgets, and automate invoicing to optimize profitability and efficiency.":
+    - /url: /time-tracking-consultants
+    - paragraph: Consulting
+    - paragraph: Track billable and non-billable hours for each client, manage project expenses, set budgets, and automate invoicing to optimize profitability and efficiency.
+  - link "Real Estate Generate precise timesheets, streamline team scheduling, and automate payroll to efficiently manage field agents, contractors, and office staff within your real estate team.":
+    - /url: /time-tracking-real-estate
+    - paragraph: Real Estate
+    - paragraph: Generate precise timesheets, streamline team scheduling, and automate payroll to efficiently manage field agents, contractors, and office staff within your real estate team.
+  - link "Marketing Agencies Automate timesheets, control campaign budgets, and track team performance to deliver successful marketing projects on time.":
+    - /url: /time-tracking-agencies
+    - paragraph: Marketing Agencies
+    - paragraph: Automate timesheets, control campaign budgets, and track team performance to deliver successful marketing projects on time.
+  - paragraph: One central dashboard
+  - paragraph: "Hubstaff provides clarity, no matter the industry, by showing you:"
+  - list:
+    - listitem:
+      - paragraph: Time tracking data
+    - listitem:
+      - paragraph: Automated payroll
+    - listitem:
+      - paragraph: Productivity metrics & much more
+  - button "Explore solutions for your industry"
+  - heading "Try Hubstaff time tracking software free 🚀" [level=3]
+  - link "Get started":
+    - /url: /signup
+  - paragraph: Free, 14-day trial. No credit card required
+- contentinfo:
+  - navigation:
+    - text: Product
+    - list:
+      - listitem:
+        - link "Employee time tracking software":
+          - /url: /employee-time-tracking
+      - listitem:
+        - link "Employee monitoring software":
+          - /url: /employee-monitoring
+      - listitem:
+        - link "Workforce management software":
+          - /url: /workforce-management
+      - listitem:
+        - link "Integrations":
+          - /url: /integrations
+      - listitem:
+        - link "Pricing":
+          - /url: /pricing
+        - text: Free trial
+    - text: Compare Hubstaff with
+    - list:
+      - listitem:
+        - link "Toggl":
+          - /url: /hubstaff-vs-toggl
+      - listitem:
+        - link "Clockify":
+          - /url: /hubstaff-vs-clockify
+      - listitem:
+        - link "Insightful":
+          - /url: /hubstaff-vs-insightful
+      - listitem:
+        - link "Apploye":
+          - /url: /hubstaff-vs-apploye
+      - listitem:
+        - link "ActivTrak":
+          - /url: /hubstaff-vs-activtrak
+      - listitem:
+        - link "Desktime":
+          - /url: /desktime-alternative
+    - text: Features
+    - list:
+      - listitem:
+        - link "Time tracker with screenshots":
+          - /url: /time-tracker-with-screenshots
+      - listitem:
+        - link "Employee timesheet software":
+          - /url: /employee-timesheet-software
+      - listitem:
+        - link "GPS time clock":
+          - /url: /gps-time-tracking
+      - listitem:
+        - link "Overtime tracker":
+          - /url: /overtime-tracker
+      - listitem:
+        - link "Time reporting":
+          - /url: /time-report
+      - listitem:
+        - link "Attendance tracker":
+          - /url: /attendance-tracking-software
+      - listitem:
+        - link "Web-based time tracker":
+          - /url: /web-based-time-tracker
+      - listitem:
+        - link "Activity log app":
+          - /url: /activity-log-app
+      - listitem:
+        - link "Workforce analytics software":
+          - /url: /workforce-analytics
+      - listitem:
+        - link "Features overview":
+          - /url: /features
+    - text: Resources
+    - list:
+      - listitem:
+        - link "Time tracking resources":
+          - /url: /time-tracking/resources
+      - listitem:
+        - link "Resource hub":
+          - /url: /resources
+      - listitem:
+        - link "Blog":
+          - /url: /blog
+      - listitem:
+        - link "Help center":
+          - /url: https://support.hubstaff.com
+      - listitem:
+        - link "Guiding principles":
+          - /url: /guiding-principles
+      - listitem:
+        - link "Customer stories":
+          - /url: /customers
+    - text: Solutions
+    - list:
+      - listitem: By industry
+      - listitem:
+        - link "Agencies":
+          - /url: /time-tracking-agencies
+      - listitem:
+        - link "Software Development":
+          - /url: /time-tracking-software-development
+      - listitem:
+        - link "Consulting":
+          - /url: /time-tracking-consultants
+      - listitem:
+        - link "See all industries":
+          - /url: /solutions
+      - listitem: By workforce
+      - listitem:
+        - link "Fully remote":
+          - /url: /remote-workforce-software
+      - listitem:
+        - link "Hybrid":
+          - /url: /hybrid
+      - listitem:
+        - link "Field":
+          - /url: /field-tracking-software
+      - listitem: By type
+      - listitem:
+        - link "SMB":
+          - /url: /solutions/small-business
+      - listitem:
+        - link "Enterprise":
+          - /url: /enterprise
+    - text: Company
+    - list:
+      - listitem:
+        - link "About us":
+          - /url: /about
+      - listitem:
+        - link "Contact Us":
+          - /url: /contact
+      - listitem:
+        - link "Careers":
+          - /url: /jobs
+        - text: Hiring
+      - listitem:
+        - link "Press":
+          - /url: /press
+      - listitem:
+        - link "Partners":
+          - /url: /partners
+      - listitem:
+        - link "FAQ":
+          - /url: /faq
+      - listitem:
+        - link "Status":
+          - /url: "https://status.hubstaff.com/ "
+      - listitem:
+        - link "Product roadmap":
+          - /url: https://roadmap.hubstaff.com
+    - text: Apps Download
+    - list:
+      - listitem:
+        - link "Mac time tracker":
+          - /url: /mac-time-tracker
+      - listitem:
+        - link "Linux time tracker":
+          - /url: /linux-time-tracking
+      - listitem:
+        - link "Chromebook time tracker":
+          - /url: /chromeos-time-tracking
+      - listitem:
+        - link "Windows time tracker":
+          - /url: /windows-time-tracking
+      - listitem:
+        - link "Android time tracker":
+          - /url: /android-time-tracking-app-with-gps
+      - listitem:
+        - link "iOS time tracker":
+          - /url: /time-tracking-app-iphone
+  - heading "Ready to get started?" [level=3]
+  - textbox "Enter your work email"
+  - button "Create account"
+  - text: Spring Leader '25
+  - separator
+  - text: No credit card required Connect
+  - list:
+    - listitem:
+      - link "Follow Hubstaff on Facebook":
+        - /url: https://www.facebook.com/hubstaffapps
+    - listitem:
+      - link "Follow Hubstaff on Instagram":
+        - /url: https://www.instagram.com/hubstaffapp/
+    - listitem:
+      - link "Follow Hubstaff on X":
+        - /url: https://x.com/Hubstaff
+    - listitem:
+      - link "Follow Hubstaff on LinkedIn":
+        - /url: https://www.linkedin.com/company/hubstaff
+    - listitem:
+      - link "Follow Hubstaff on Youtube":
+        - /url: https://www.youtube.com/channel/UCV0-Tt5WiHnxDb3Z7wV_Qlg/feed
+  - link:
+    - /url: ""
+  - text: Copyright © 2025 Netsoft Holdings, LLC
+  - list:
+    - listitem:
+      - link "Terms":
+        - /url: /terms
+    - listitem:
+      - link "Privacy":
+        - /url: /privacy
+    - listitem:
+      - link "GDPR compliance":
+        - /url: /gdpr
+    - listitem:
+      - link "Cookie consent":
+        - /url: "#"
+```
+
+# Test source
+
+```ts
+   1 | import { Page } from "@playwright/test";
+   2 |
+   3 | export class MarketingPage {
+   4 |   private readonly loginButton = this.page.getByRole("link", {
+   5 |     name: "Sign in",
+   6 |   });
+   7 |
+   8 |   private readonly freeTrialButton = this.page.getByRole("link", {
+   9 |     name: "Free 14-day trial",
+  10 |   });
+  11 |
+  12 |   constructor(private readonly page: Page) {}
+  13 |
+  14 |   async goto(): Promise<void> {
+  15 |     await this.page.goto("https://hubstaff.com");
+  16 |   }
+  17 |
+  18 |   async verifyOnMarketingPage(): Promise<void> {
+> 19 |     await this.page.waitForSelector(".marketing-page");
+     |                     ^ TimeoutError: page.waitForSelector: Timeout 15000ms exceeded.
+  20 |   }
+  21 |
+  22 |   async clickSignInButton(): Promise<void> {
+  23 |     await this.loginButton.click();
+  24 |   }
+  25 |
+  26 |   async clickLoginButton(): Promise<void> {
+  27 |     await this.clickSignInButton(); // Keep for backward compatibility
+  28 |   }
+  29 |
+  30 |   async clickFreeTrialButton(): Promise<void> {
+  31 |     await this.freeTrialButton.click();
+  32 |   }
+  33 | }
+  34 |
+```

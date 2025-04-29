@@ -1,0 +1,181 @@
+# Test info
+
+- Name: Hubstaff Signup and Login >> Test Case #83: Signup for the 14-day free trial
+- Location: C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:15:7
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Continue' })
+
+    at SignupPage.clickContinueButton (C:\Users\Artem\hubstaff_test\tests\pages\signup-page.ts:52:31)
+    at SignupPage.completeSignup (C:\Users\Artem\hubstaff_test\tests\pages\signup-page.ts:60:16)
+    at SignupPage.completeRegistrationWithEmailVerification (C:\Users\Artem\hubstaff_test\tests\pages\signup-page.ts:96:5)
+    at C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:52:21
+```
+
+# Page snapshot
+
+```yaml
+- main:
+  - text: Boost Productivity Maximize productivity with real-time insights, automated timesheets, budget costing, and more. First name*
+  - textbox "First name*": John
+  - text: Last name*
+  - textbox "Last name*": Doe
+  - text: Work email*
+  - textbox "Work email*": e33953a4-6502-4abf-a72e-d743f4d75454@mailslurp.biz
+  - text: Password*
+  - textbox "Password*": Pass123
+  - button
+  - checkbox "I agree to the Terms, Privacy Policy and DPA*" [checked]
+  - text: I agree to the
+  - link "Terms":
+    - /url: /terms
+  - text: ","
+  - link "Privacy Policy":
+    - /url: /privacy
+  - text: and
+  - link "DPA":
+    - /url: /dpa
+  - text: "*"
+  - button "Start Your Free Trial"
+  - text: No credit card required
+  - img "quote icon"
+  - paragraph: We use time tracking for international teams for payroll purposes because we can make sure that people aren't unproductive.
+  - separator
+  - paragraph: "Industry: Marketing Agency"
+  - paragraph: "Employees: 100"
+  - paragraph: Solomon Thimothy
+  - text: OneIMS President and Founder
+  - button
+  - button
+  - text: An award winning platform
+  - img "leader"
+  - img "best_support"
+  - img "best_results"
+  - img "highest_user_adoption"
+```
+
+# Test source
+
+```ts
+   1 | import { Page, expect, Locator } from '@playwright/test';
+   2 | import { EmailHelper } from '../utils/email-helper';
+   3 |
+   4 | /**
+   5 |  * Page Object class for the Signup page
+   6 |  */
+   7 | export class SignupPage {
+   8 |   // Declaring class properties
+   9 |   private readonly firstNameInput: Locator;
+   10 |   private readonly lastNameInput: Locator;
+   11 |   private readonly emailInput: Locator;
+   12 |   private readonly passwordInput: Locator;
+   13 |   private readonly termsCheckbox: Locator;
+   14 |   private readonly continueButton: Locator;
+   15 |   private readonly customerRetentionPage: Locator;
+   16 |
+   17 |   constructor(private readonly page: Page) {
+   18 |     // Initialize locators in constructor
+   19 |     this.firstNameInput = page.locator('input[name="user[first_name]"]');
+   20 |     this.lastNameInput = page.locator('input[name="user[last_name]"]');
+   21 |     this.emailInput = page.locator('input[name="user[email]"]');
+   22 |     this.passwordInput = page.locator('input[name="user[password]"]');
+   23 |     this.termsCheckbox = page.locator('.hsds-form__checkbox-icon');
+   24 |     this.continueButton = page.getByRole('button', { name: 'Continue' });
+   25 |     this.customerRetentionPage = page.locator('.customer-retention-form');
+   26 |   }
+   27 |
+   28 |   /**
+   29 |    * Navigate directly to the signup page
+   30 |    */
+   31 |   async goto(): Promise<void> {
+   32 |     await this.page.goto('https://hubstaff.com/signup');
+   33 |     await this.verifyOnSignupPage();
+   34 |   }
+   35 |
+   36 |   /**
+   37 |    * Fill the signup form
+   38 |    */
+   39 |   async fillSignupForm(firstName: string, lastName: string, email: string, password: string): Promise<void> {
+   40 |     // Fill in user details in the form
+   41 |     await this.firstNameInput.fill(firstName);
+   42 |     await this.lastNameInput.fill(lastName);
+   43 |     await this.emailInput.fill(email);
+   44 |     await this.passwordInput.fill(password);
+   45 |     await this.termsCheckbox.click();
+   46 |   }
+   47 |
+   48 |   /**
+   49 |    * Click the "Create my account" button
+   50 |    */
+   51 |   async clickContinueButton(): Promise<void> {
+>  52 |     await this.continueButton.click();
+      |                               ^ TimeoutError: locator.click: Timeout 15000ms exceeded.
+   53 |   }
+   54 |
+   55 |   /**
+   56 |    * Complete the entire signup process
+   57 |    */
+   58 |   async completeSignup(firstName: string, lastName: string, email: string, password: string): Promise<void> {
+   59 |     await this.fillSignupForm(firstName, lastName, email, password);
+   60 |     await this.clickContinueButton();
+   61 |     
+   62 |     // Wait for redirect to email verification page
+   63 |     await this.verifyOnEmailVerificationPage();
+   64 |   }
+   65 |
+   66 |   /**
+   67 |    * Verify user is on the signup page
+   68 |    */
+   69 |   async verifyOnSignupPage(): Promise<void> {
+   70 |     await expect(this.page).toHaveURL(/.*\/signup.*/);
+   71 |     await expect(this.page.locator('.hsds-row__heading')).toHaveText('Boost Productivity');
+   72 |   }
+   73 |
+   74 |   /**
+   75 |    * Verify user is on the email verification page
+   76 |    */
+   77 |   async verifyOnEmailVerificationPage(): Promise<void> {
+   78 |     await expect(this.page).toHaveURL(/.*\/confirmation_sent.*/);
+   79 |     await expect(this.customerRetentionPage).toBeVisible();
+   80 |   }
+   81 |   
+   82 |   /**
+   83 |    * Complete the full registration flow including email verification
+   84 |    * 
+   85 |    * @param userData Object containing user registration data including inboxId
+   86 |    * @returns Promise indicating if the full signup process was successful
+   87 |    */
+   88 |   async completeRegistrationWithEmailVerification(userData: {
+   89 |     firstName: string;
+   90 |     lastName: string;
+   91 |     email: string;
+   92 |     password: string;
+   93 |     inboxId: string;
+   94 |   }): Promise<boolean> {
+   95 |     // Complete the signup form
+   96 |     await this.completeSignup(
+   97 |       userData.firstName,
+   98 |       userData.lastName,
+   99 |       userData.email,
+  100 |       userData.password
+  101 |     );
+  102 |     
+  103 |     // Log for debugging
+  104 |     console.log(`Signup completed, waiting for verification email for: ${userData.email}`);
+  105 |     
+  106 |     // Initialize email helper and verify email
+  107 |     // This process will:
+  108 |     // 1. Wait for confirmation email to arrive in the provided inbox
+  109 |     // 2. Extract the confirmation link from the email
+  110 |     // 3. Navigate to the confirmation link in a new page
+  111 |     // 4. Wait for the confirmation process to complete
+  112 |     // 5. Return true if successful (redirected to dashboard)
+  113 |     const emailHelper = new EmailHelper(this.page);
+  114 |     return await emailHelper.completeEmailVerification(userData.inboxId);
+  115 |   }
+  116 | } 
+```

@@ -1,0 +1,144 @@
+# Test info
+
+- Name: Financials >> Test Case #93: Create payment
+- Location: C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:102:7
+
+# Error details
+
+```
+Error: browser._newContextForReuse: Target page, context or browser has been closed
+Call log:
+  - navigating to "about:blank", waiting until "load"
+
+```
+
+# Test source
+
+```ts
+   2 | import { TEST_USER, generateUniqueName, takeScreenshotOnFailure } from './utils/test-helpers';
+   3 | import { EmailHelper } from './utils/email-helper';
+   4 | import { MarketingPage } from './pages/marketing-page';
+   5 | import { SignupPage } from './pages/signup-page';
+   6 | import { LoginPage } from './pages/login-page';
+   7 | import { ProjectPage } from './pages/project-page';
+   8 | import { PaymentPage } from './pages/payment-page';
+   9 |
+   10 | // Test case #83: Signup for the 14-day free trial
+   11 | test.describe('Hubstaff Signup and Login', () => {
+   12 |   // Increase timeout for email verification tests
+   13 |   test.setTimeout(120000);
+   14 |
+   15 |   test('Test Case #83: Signup for the 14-day free trial', async ({ page }) => {
+   16 |     // Initialize page objects
+   17 |     const marketingPage = new MarketingPage(page);
+   18 |     const signupPage = new SignupPage(page);
+   19 |     
+   20 |     // Get API key from environment
+   21 |     const apiKey = process.env.MAILSLURP_API_KEY;
+   22 |     if (!apiKey) {
+   23 |       throw new Error('MAILSLURP_API_KEY is not set in environment variables or .env file');
+   24 |     }
+   25 |     
+   26 |     const emailHelper = new EmailHelper(page, apiKey, true); // Enable debug logging
+   27 |     
+   28 |     // Precondition: Marketing landing page is open
+   29 |     await marketingPage.goto();
+   30 |     await marketingPage.verifyOnMarketingPage();
+   31 |     
+   32 |     // 1. Click the "Free 14-day trial" button on the top nav header
+   33 |     await marketingPage.clickFreeTrialButton();
+   34 |     
+   35 |     // Verify redirect to sign up page
+   36 |     await signupPage.verifyOnSignupPage();
+   37 |     
+   38 |     // Create a new MailSlurp inbox for verification
+   39 |     const { inbox, emailAddress } = await emailHelper.createInbox();
+   40 |     console.log(`Created temporary email address: ${emailAddress}`);
+   41 |     
+   42 |     // Generate random first and last names
+   43 |     const firstName = generateUniqueName('User', false);
+   44 |     const lastName = generateUniqueName('Test', false);
+   45 |     console.log(`Generated test user: ${firstName} ${lastName}`);
+   46 |     
+   47 |     // 2-6. Complete the signup process with the MailSlurp email
+   48 |     const userData = {
+   49 |       firstName,
+   50 |       lastName,
+   51 |       email: emailAddress,
+   52 |       password: TEST_USER.password,
+   53 |       inboxId: inbox.id
+   54 |     };
+   55 |     
+   56 |     // Complete registration with email verification
+   57 |     const success = await signupPage.completeRegistrationWithEmailVerification(userData);
+   58 |     
+   59 |     // Verify the registration was successful
+   60 |     expect(success).toBe(true);
+   61 |     
+   62 |     // Clean up: Delete the temporary inbox
+   63 |     await emailHelper.deleteInbox(inbox.id);
+   64 |   });
+   65 |
+   66 |   test('Test Case #100: Sign in', async ({ page }) => {
+   67 |     // Initialize page objects
+   68 |     const marketingPage = new MarketingPage(page);
+   69 |     const loginPage = new LoginPage(page);
+   70 |     
+   71 |     await marketingPage.goto();
+   72 |     await marketingPage.verifyOnMarketingPage();
+   73 |     await marketingPage.clickSignInButton();
+   74 |     
+   75 |     await loginPage.verifyUrlAndTitle();
+   76 |     await loginPage.login(TEST_USER.email, TEST_USER.password);
+   77 |     
+   78 |     await expect(page).toHaveURL(/.*\/getting_started.*/);
+   79 |   });
+   80 | });
+   81 |
+   82 | test.describe('Project Management', () => {
+   83 |   test('Test Case #69: Create project', async ({ page }) => {
+   84 |     const projectPage = new ProjectPage(page);
+   85 |     const marketingPage = new MarketingPage(page);
+   86 |     const loginPage = new LoginPage(page);
+   87 |     
+   88 |     await marketingPage.goto();
+   89 |     await marketingPage.verifyOnMarketingPage();
+   90 |     await marketingPage.clickSignInButton();
+   91 |     
+   92 |     await loginPage.verifyUrlAndTitle();
+   93 |     await loginPage.login(TEST_USER.email, TEST_USER.password);
+   94 |     
+   95 |     await projectPage.navigateToProjectsPage();
+   96 |     const projectName = generateUniqueName('Project');
+   97 |     await projectPage.createProject(projectName);
+   98 |   });
+   99 | });
+  100 |
+  101 | test.describe('Financials', () => {
+> 102 |   test('Test Case #93: Create payment', async ({ page }) => {
+      |       ^ Error: browser._newContextForReuse: Target page, context or browser has been closed
+  103 |     const paymentPage = new PaymentPage(page);
+  104 |     const marketingPage = new MarketingPage(page);
+  105 |     const loginPage = new LoginPage(page);
+  106 |     
+  107 |     await marketingPage.goto();
+  108 |     await marketingPage.verifyOnMarketingPage();
+  109 |     await marketingPage.clickSignInButton();
+  110 |     
+  111 |     await loginPage.verifyUrlAndTitle();
+  112 |     await loginPage.login(TEST_USER.email, TEST_USER.password);
+  113 |     
+  114 |     await paymentPage.navigateToPaymentsPage();
+  115 |     
+  116 |     /*await paymentPage.createOneTimePayment(
+  117 |       TEST_USER.fullName, 
+  118 |       '10.00', 
+  119 |       'Bonus payment for excellent work'
+  120 |     );*/
+  121 |   });
+  122 | });
+  123 |
+  124 | test.afterEach(async ({ page }, testInfo) => {
+  125 |   await takeScreenshotOnFailure(testInfo, page);
+  126 | }); 
+```

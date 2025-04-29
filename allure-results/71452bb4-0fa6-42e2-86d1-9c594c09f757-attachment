@@ -1,0 +1,124 @@
+# Test info
+
+- Name: Hubstaff Signup and Login >> Test Case #100: Sign in
+- Location: C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:66:7
+
+# Error details
+
+```
+Error: Timed out 15000ms waiting for expect(locator).toHaveTitle(expected)
+
+Locator: locator(':root')
+Expected string: "Sign in to Hubstaff"
+Received string: "Hubstaff Account"
+Call log:
+  - expect.toHaveTitle with timeout 15000ms
+  - waiting for locator(':root')
+    18 × locator resolved to <html class="login_layout controller_session action_new">…</html>
+       - unexpected value "Hubstaff Account"
+
+    at LoginPage.verifyUrlAndTitle (C:\Users\Artem\hubstaff_test\tests\pages\login-page.ts:35:29)
+    at C:\Users\Artem\hubstaff_test\tests\hubstaff-tests.spec.ts:75:5
+```
+
+# Page snapshot
+
+```yaml
+- heading "Welcome to our community" [level=1]
+- text:      Hubstaff allows us to focus on what really matters. We now know more about our business and spend less time managing it, helping us be a better company.
+- img "organization logo"
+- text: John Parker Co-Founder at Quipro      Hubstaff solved our pain point the moment we started using it. Compared to other tools we'd tested, Hubstaff is simple, easy, and synchronizes with the other applications we use.
+- img "organization logo"
+- text: Andriy Sambir CEO at LinkUp      With Hubstaff we can better predict, down to the minute, how long tasks should take, therefore making better informed decisions.
+- img "organization logo"
+- text: Justin Mitchell CEO at Yac      Once we implemented Hubstaff I was amazed to see that some of the projects I thought were going to be profitable, we were blowing through hours that I wasn't aware of.
+- img "organization logo"
+- text: Tyler Nimmons CEO of Front Runner Films
+- link "Hubstaff online time tracking":
+  - /url: https://hubstaff.com/
+  - img "Hubstaff online time tracking"
+- heading "Sign in to Hubstaff" [level=2]
+- text: Work email *
+- textbox "Work email *"
+- text: Password *
+- textbox "Password *"
+- img "eye-off logo"
+- link "Forgot your password?":
+  - /url: /forgot_password
+- button "Sign in"
+- link "Log in with SSO":
+  - /url: https://account.hubstaff.com/sso_login
+- text: Don't have an account?
+- link "Get started":
+  - /url: https://app.hubstaff.com/signup?message=
+- region "Chat Widget":
+  - iframe
+  - img
+```
+
+# Test source
+
+```ts
+   1 | import { Page, expect, Locator } from "@playwright/test";
+   2 |
+   3 | /**
+   4 |  * Page Object class for the Login page
+   5 |  */
+   6 | export class LoginPage {
+   7 |   // Locators for login form elements
+   8 |   private readonly emailInput: Locator;
+   9 |   private readonly passwordInput: Locator;
+  10 |   private readonly loginButton: Locator;
+  11 |   private readonly url: string;
+  12 |   private readonly title: string;
+  13 |
+  14 |   constructor(
+  15 |     private readonly page: Page,
+  16 |     url = "https://account.hubstaff.com/login",
+  17 |     title = "Sign in to Hubstaff"
+  18 |   ) {
+  19 |     this.url = url;
+  20 |     this.title = title;
+  21 |     this.emailInput = page.locator('input[placeholder="Enter email"]');
+  22 |     this.passwordInput = page.locator('input[placeholder="Enter password"]');
+  23 |     this.loginButton = page.getByRole("button", { name: "Sign in" });
+  24 |   }
+  25 |
+  26 |   /**
+  27 |    * Navigate to the Login page
+  28 |    */
+  29 |   async goto(): Promise<void> {
+  30 |     await this.page.goto(this.url);
+  31 |   }
+  32 |
+  33 |   async verifyUrlAndTitle(): Promise<void> {
+  34 |     await expect(this.page).toHaveURL(this.url);
+> 35 |     await expect(this.page).toHaveTitle(this.title);
+     |                             ^ Error: Timed out 15000ms waiting for expect(locator).toHaveTitle(expected)
+  36 |   }
+  37 |
+  38 |   /**
+  39 |    * Fill the login form
+  40 |    */
+  41 |   async fillLoginForm(email: string, password: string): Promise<void> {
+  42 |     await this.emailInput.fill(email);
+  43 |     await this.passwordInput.fill(password);
+  44 |   }
+  45 |
+  46 |   /**
+  47 |    * Click the "Login" button
+  48 |    */
+  49 |   async clickLoginButton(): Promise<void> {
+  50 |     await this.loginButton.click();
+  51 |   }
+  52 |
+  53 |   /**
+  54 |    * Complete the entire login process
+  55 |    */
+  56 |   async login(email: string, password: string): Promise<void> {
+  57 |     await this.fillLoginForm(email, password);
+  58 |     await this.clickLoginButton();
+  59 |   }
+  60 | }
+  61 |
+```

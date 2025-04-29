@@ -1,0 +1,50 @@
+{
+  "name": "hubstaff-automation-challenge",
+  "version": "1.0.0",
+  "description": "Hubstaff QA Automation with Playwright, MailSlurp, and Allure reporting",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:parallel": "VERIFY_EMAIL=true WORKERS=3 playwright test parallel-registration.spec.ts --headed",
+    "test:ci": "VERIFY_EMAIL=true playwright test",
+    "report": "playwright show-report",
+    "report:allure": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "clean": "rimraf test-results allure-results allure-report playwright-report",
+    "pretest": "npm run clean",
+    "lint": "eslint . --ext .ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/hubstaff-automation-challenge.git"
+  },
+  "keywords": [
+    "hubstaff",
+    "playwright",
+    "typescript",
+    "automation",
+    "testing",
+    "mailslurp",
+    "allure",
+    "parallel",
+    "email-verification"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.8.2",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "allure-playwright": "^2.6.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-playwright": "^0.15.3",
+    "globals": "^16.0.0",
+    "mailslurp-client": "^15.21.0",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.2.2"
+  }
+}

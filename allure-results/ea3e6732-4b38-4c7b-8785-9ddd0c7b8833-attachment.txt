@@ -1,0 +1,2 @@
+Created temporary email address: [object Object]
+Generated test user: User Test
