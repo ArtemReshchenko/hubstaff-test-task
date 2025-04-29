@@ -1,4 +1,0 @@
-[EmailHelper] Initializing MailSlurp with API key (5e7...516)
-Created temporary email address: 661ab5e7-86bd-49d2-82d6-f3936b6d50d6@mailslurp.biz
-Generated test user: User 1745953064701 Test 1745953064701
-Signup completed, waiting for verification email for: 661ab5e7-86bd-49d2-82d6-f3936b6d50d6@mailslurp.biz
