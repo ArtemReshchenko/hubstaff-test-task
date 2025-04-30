@@ -18,13 +18,10 @@ export const TEST_USER = {
 /**
  * Helper function to generate a unique name with timestamp and optional random suffix
  */
-export function generateUniqueName(
-  prefix: string = 'Test',
-  includeRandom: boolean = true,
-): string {
-  const timestamp = Date.now();
-  const randomSuffix = includeRandom ? Math.floor(Math.random() * 10000) : '';
-  return `${prefix} ${timestamp}${randomSuffix ? `-${randomSuffix}` : ''}`;
+export function generateUniqueName(prefix: string, includeTimestamp = true): string {
+  const timestamp = includeTimestamp ? `-${Date.now()}` : '';
+  const random = Math.random().toString(36).substring(2, 8);
+  return `${prefix}${timestamp}-${random}`;
 }
 
 /**
@@ -110,28 +107,11 @@ export async function generateUniqueTestUser(
  * Helper function to take screenshots on failure
  * Enhanced with Allure reporting metadata
  */
-export async function takeScreenshotOnFailure(
-  testInfo: TestInfo,
-  page: Page,
-): Promise<void> {
-  if (testInfo.status !== 'passed') {
-    // Take a screenshot and attach to both Playwright and Allure reports
-    const screenshot = await page.screenshot({
-      path: `test-results/screenshots/${testInfo.title.replace(/\s+/g, '-')}-failure.png`,
-      fullPage: true,
-    });
-
-    await testInfo.attach('screenshot', {
-      body: screenshot,
-      contentType: 'image/png',
-    });
-
-    // Also capture page source for debugging
-    const pageSource = await page.content();
-    await testInfo.attach('page-source', {
-      body: pageSource,
-      contentType: 'text/html',
-    });
+export async function takeScreenshotOnFailure(testInfo: TestInfo, page: any): Promise<void> {
+  if (testInfo.status !== testInfo.expectedStatus) {
+    const screenshotPath = `screenshots/${testInfo.title.replace(/\s+/g, '-')}-${Date.now()}.png`;
+    await page.screenshot({ path: screenshotPath, fullPage: true });
+    console.log(`Screenshot saved to: ${screenshotPath}`);
   }
 }
 
@@ -143,5 +123,43 @@ export function generateRandomString(length: number): string {
     result += characters.charAt(Math.floor(Math.random() * characters.length));
   }
   return result;
+}
+
+export function generateTestUser() {
+  return {
+    firstName: generateUniqueName('User', false),
+    lastName: generateUniqueName('Test', false),
+    email: `test-${Date.now()}@example.com`,
+    password: `Test${Date.now()}!`,
+  };
+}
+
+export function logTestStep(step: string, details?: any) {
+  console.log(`\n=== Test Step: ${step} ===`);
+  if (details) {
+    console.log('Details:', JSON.stringify(details, null, 2));
+  }
+}
+
+export async function retryOperation<T>(
+  operation: () => Promise<T>,
+  maxAttempts = 3,
+  delayMs = 1000
+): Promise<T> {
+  let lastError: Error | null = null;
+  
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error as Error;
+      if (attempt < maxAttempts) {
+        console.log(`Attempt ${attempt} failed, retrying in ${delayMs}ms...`);
+        await new Promise(resolve => setTimeout(resolve, delayMs));
+      }
+    }
+  }
+  
+  throw new Error(`Operation failed after ${maxAttempts} attempts. Last error: ${lastError?.message}`);
 }
 
