@@ -1,0 +1,11 @@
+
+=== Test Step: Starting payment creation test ===
+
+=== Test Step: Creating payment ===
+Details: {
+  "amount": "0.005",
+  "note": "Bonus payment for excellent work",
+  "currency": "USD"
+}
+
+=== Test Step: Payment created successfully ===

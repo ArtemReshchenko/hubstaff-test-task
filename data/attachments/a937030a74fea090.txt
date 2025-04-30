@@ -1,0 +1,13 @@
+
+=== Test Step: Starting signup test ===
+[EmailHelper] Initializing MailSlurp with API key (5e7...516)
+
+=== Test Step: Navigating to marketing page ===
+
+=== Test Step: Initiating signup process ===
+
+=== Test Step: Generated test user data ===
+Details: {
+  "email": "test-1746046201915@example.com"
+}
+Screenshot saved to: screenshots/@auth-should-successfully-complete-14-day-free-trial-signup-with-email-verification-1746046202168.png
